@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實戰口譯及 AI 核證質素培訓模擬系統 (Court Interpreter AI Suite)</title>
+    
+    <!-- React 18 Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    
+    <!-- Tailwind CSS v4 Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Custom Tailwind v4 Utilities & Themes -->
+    <style type="text/tailwindcss">
+        @utility animate-fade-in {
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        html { transition: filter 0.3s ease; }
+    </style>
+    
+    <!-- Parser Engines for Docx & PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <div id="root"></div>
+
+    <!-- 1. 載入教材數據庫 -->
+    <script src="./presets.js"></script>
+
+    <!-- 2. 載入核心邏輯與 OpenRouter API 服務層 -->
+    <script src="./services.js"></script>
+
+    <!-- 3. 載入純原生 JavaScript 版 React 應用程式 (免 Babel 編譯，零衝突) -->
+    <script src="./app.js"></script>
+
+</body>
+</html>
